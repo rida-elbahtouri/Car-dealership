@@ -6,12 +6,12 @@ public class Main {
 	// write your code here
         Customer rida = new Customer();
         rida.setName("rida");
-        rida.setCash(80900.5);
+        rida.setCash(17000.5);
 
         Car tesla = new Car();
         tesla.setModelName("tesla S");
         tesla.setPrice(20000);
-
+        rida.testCar(tesla);
         rida.bycar(tesla);
     }
 }
