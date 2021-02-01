@@ -48,8 +48,12 @@ public class Main {
         if(answer.equalsIgnoreCase("YES")){
            ArrayList<Car> PCars =  OurCars.getCars(newcust.getCash());
              for (int i = 0 ; i <  OurCars.getCars(newcust.getCash()).size(); i++){
-                 System.out.println(PCars.get(i).getModelName());
+                 System.out.println(i +" - "+PCars.get(i).getModelName()+" the Price is : "+ PCars.get(i).getPrice()+ " $");
              }
+
+            System.out.println("enter the number of the car you want to buy");
+            newcust.bycar(PCars.get(answers.nextInt()));
+
         }
 
     }
