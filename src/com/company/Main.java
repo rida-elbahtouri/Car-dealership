@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+// I need to add a hundler for user input
 public class Main {
 
     public static void main(String[] args) {
@@ -46,15 +46,31 @@ public class Main {
         String answer = answers.nextLine();
 
         if(answer.equalsIgnoreCase("YES")){
-           ArrayList<Car> PCars =  OurCars.getCars(newcust.getCash());
-             for (int i = 0 ; i <  OurCars.getCars(newcust.getCash()).size(); i++){
-                 System.out.println(i +" - "+PCars.get(i).getModelName()+" the Price is : "+ PCars.get(i).getPrice()+ " $");
-             }
-
-            System.out.println("enter the number of the car you want to buy");
-            newcust.bycar(PCars.get(answers.nextInt()));
-
+            boolean prsent = true;
+            while(prsent){
+                ArrayList<Car> PCars =  OurCars.getCars(newcust.getCash());
+                if(PCars.size() > 0){
+                    for (int i = 0 ; i <  OurCars.getCars(newcust.getCash()).size(); i++){
+                        System.out.println(i +" - "+PCars.get(i).getModelName()+" the Price is : "+ PCars.get(i).getPrice()+ " $");
+                    }
+                    System.out.println("enter the number of the car you want to buy");
+                    newcust.bycar(PCars.get(answers.nextInt()));
+                    System.out.println("Your remain cash is : "+newcust.getCash());
+                    System.out.println("Do you want to see other cars?");
+                    Scanner buyagain = new Scanner(System.in);
+                    answer = buyagain.nextLine();
+                    if(answer.equalsIgnoreCase("YES")){
+                        prsent = true;
+                    }else {
+                        System.out.println("Thank you for comming here and we hope we see you again!!");
+                        prsent = false;
+                    }
+                }else {
+                    System.out.println("it seems there is no cars you can buy with you current balance");
+                    System.out.println("please come back again next time , we may have other new cars");
+                    prsent = false;
+                }
+            }
         }
-
     }
 }
