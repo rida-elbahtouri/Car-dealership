@@ -3,35 +3,35 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 // I need to add a hundler for user input
-public class Main {
+public class BaseDealer {
 
     public static void main(String[] args) {
         Customer newcust = new Customer();
         Dealership OurCars = new Dealership();
-        Car car1 = new Car();
-        car1.setModelName("tesla s");
-        car1.setPrice(25000);
+        Vehicle vehicle1 = new Vehicle();
+        vehicle1.setModelName("tesla s");
+        vehicle1.setPrice(25000);
 
-        Car car2 = new Car();
-        car2.setModelName("Reno");
-        car2.setPrice(18000);
+        Vehicle vehicle2 = new Vehicle();
+        vehicle2.setModelName("Reno");
+        vehicle2.setPrice(18000);
 
-        Car car3 = new Car();
-        car3.setModelName("Dacia");
-        car3.setPrice(17000);
+        Vehicle vehicle3 = new Vehicle();
+        vehicle3.setModelName("Dacia");
+        vehicle3.setPrice(17000);
 
-        Car car4 = new Car();
-        car4.setModelName("Lambergienie");
-        car4.setPrice(180000);
+        Vehicle vehicle4 = new Vehicle();
+        vehicle4.setModelName("Lambergienie");
+        vehicle4.setPrice(180000);
 
-        Car car5 = new Car();
-        car5.setModelName("Reno");
-        car5.setPrice(18000);
-        OurCars.addCars(car1);
-        OurCars.addCars(car2);
-        OurCars.addCars(car3);
-        OurCars.addCars(car4);
-        OurCars.addCars(car5);
+        Vehicle vehicle5 = new Vehicle();
+        vehicle5.setModelName("Reno");
+        vehicle5.setPrice(18000);
+        OurCars.addCars(vehicle1);
+        OurCars.addCars(vehicle2);
+        OurCars.addCars(vehicle3);
+        OurCars.addCars(vehicle4);
+        OurCars.addCars(vehicle5);
         Scanner customer = new Scanner(System.in);
         System.out.println("Enter your name");
         newcust.setName(customer.nextLine());
@@ -48,13 +48,13 @@ public class Main {
         if(answer.equalsIgnoreCase("YES")){
             boolean prsent = true;
             while(prsent){
-                ArrayList<Car> PCars =  OurCars.getCars(newcust.getCash());
-                if(PCars.size() > 0){
+                ArrayList<Vehicle> PVehicles =  OurCars.getCars(newcust.getCash());
+                if(PVehicles.size() > 0){
                     for (int i = 0 ; i <  OurCars.getCars(newcust.getCash()).size(); i++){
-                        System.out.println(i +" - "+PCars.get(i).getModelName()+" the Price is : "+ PCars.get(i).getPrice()+ " $");
+                        System.out.println(i +" - "+ PVehicles.get(i).getModelName()+" the Price is : "+ PVehicles.get(i).getPrice()+ " $");
                     }
                     System.out.println("enter the number of the car you want to buy");
-                    newcust.bycar(PCars.get(answers.nextInt()));
+                    newcust.bycar(PVehicles.get(answers.nextInt()));
                     System.out.println("Your remain cash is : "+newcust.getCash());
                     System.out.println("Do you want to see other cars?");
                     Scanner buyagain = new Scanner(System.in);

@@ -18,8 +18,8 @@ public class Customer {
     }
 
 
-    protected void testCar(Car car) {
-        double price90 = car.getPrice() - car.getPrice() * 1/10;
+    protected void testCar(Vehicle vehicle) {
+        double price90 = vehicle.getPrice() - vehicle.getPrice() * 1/10;
         if( price90 <= this.Cash){
             System.out.println("you can test the car");
         }else {
@@ -27,10 +27,10 @@ public class Customer {
         }
     }
 
-    public void bycar(Car car){
-        if ( car.getPrice()<=this.Cash ){
-            setCash(this.Cash - car.getPrice());
-            System.out.println("congrat for buying "+ car.getModelName() + " it an amazying car!");
+    public void bycar(Vehicle vehicle){
+        if ( vehicle.getPrice()<=this.Cash ){
+            setCash(this.Cash - vehicle.getPrice());
+            System.out.println("congrat for buying "+ vehicle.getModelName() + " it an amazying car!");
         }else {
             System.out.println("you need more money!");
         }

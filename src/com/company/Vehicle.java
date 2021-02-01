@@ -1,6 +1,6 @@
 package com.company;
 
-public class Car {
+public class Vehicle {
     private String modelName;
     private double price;
 
