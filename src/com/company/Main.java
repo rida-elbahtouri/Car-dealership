@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -31,22 +32,23 @@ public class Main {
         OurCars.addCars(car3);
         OurCars.addCars(car4);
         OurCars.addCars(car5);
-        Scanner customer = new Scanner(System.in);  // Create a Scanner object
+        Scanner customer = new Scanner(System.in);
         System.out.println("Enter your name");
-        newcust.setName(customer.nextLine());  // Read user input
-        System.out.println("You name is: " + newcust.getName());  // Output user input
+        newcust.setName(customer.nextLine());
+        System.out.println("You name is: " + newcust.getName());
         System.out.println("Enter your Cash");
         newcust.setCash(customer.nextDouble());
         System.out.println("your cash is: " + newcust.getCash() + "$");
-        System.out.println("Do you want to see our cars ?");
+
 
         Scanner answers = new Scanner(System.in);
+        System.out.println("Do you want to see our cars ? write yes or no");
         String answer = answers.nextLine();
-        System.out.println(answer);
+
         if(answer.equalsIgnoreCase("YES")){
-           // OurCars.getCars(newcust.getCash());
+           ArrayList<Car> PCars =  OurCars.getCars(newcust.getCash());
              for (int i = 0 ; i <  OurCars.getCars(newcust.getCash()).size(); i++){
-                 System.out.println(OurCars.getCars(newcust.getCash()).get(i).getModelName());
+                 System.out.println(PCars.get(i).getModelName());
              }
         }
 

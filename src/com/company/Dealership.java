@@ -11,11 +11,12 @@ public class Dealership {
     }
     public ArrayList<Car> getCars(double cash){
         ArrayList<Car> newcars = new ArrayList<>();
-
         for (int i=0; i < cars.size(); i++){
-            newcars.add(cars.get(i));
-        }
+            if(cars.get(i).getPrice() <= cash){
+                newcars.add(cars.get(i));
+            }
 
+        }
         return newcars;
     }
 }
